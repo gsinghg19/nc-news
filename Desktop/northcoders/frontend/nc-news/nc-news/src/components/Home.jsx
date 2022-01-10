@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="Home">
-      <Link to="/articles">
+      <Link to="/">
         <img
           id="Home"
           src="https://media.istockphoto.com/vectors/latest-news-vector-id1329330958"

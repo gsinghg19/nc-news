@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getAllArticles } from "../utils/api";
+import * as api from "../utils/api";
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
@@ -16,7 +17,7 @@ const ArticleList = () => {
   }, []);
 
   return (
-    <main className="articles">
+    <body className="articles">
       <h3>ArticleList</h3>
       <ul className="articles-list">
         {articles.map((article) => {
@@ -29,7 +30,7 @@ const ArticleList = () => {
           );
         })}
       </ul>
-    </main>
+    </body>
   );
 };
 

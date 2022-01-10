@@ -3,11 +3,16 @@ body {
 }
 
 h1 {
-  background-color: orangered;
+  background-color: lightcoral;
 }
 
 div.Home {
-  background-color: green;
+  background-color: lightgreen;
+}
+
+img {
+  display: flex;
+  padding: 10px;
 }
 
 .App {
@@ -48,13 +53,13 @@ div.Home {
   align-items: center;
 }
 
-nav p {
-  background-color: #333;
+nav {
+  background-color: lightgreen;
   overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
-nav p {
+nav {
   float: left;
   color: #f2f2f2;
   text-align: center;
@@ -64,13 +69,17 @@ nav p {
 }
 
 /* Change the color of links on hover */
-nav p:hover {
-  background-color: #04aa6d;
+nav:hover {
+  background-color: orangered;
   color: black;
 }
 
 /* Add a color to the active/current link */
-nav p.active {
+nav.active {
   background-color: orangered;
   color: white;
+}
+
+button {
+  background-color: lightblue;
 }

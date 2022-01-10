@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <div>
-      <h1>Welcome to the NC news app</h1>
+      <h1>NC news app</h1>
     </div>
   );
 };
