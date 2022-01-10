@@ -6,18 +6,22 @@ const ArticleList = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    getAllArticles().then((articlesFromApi) => {
-      setArticles(articlesFromApi);
-    });
+    getAllArticles()
+      .then((articlesFromApi) => {
+        setArticles(articlesFromApi);
+      })
+      .catch((error) => {
+        console.log(error, "running line 14<<<>>>");
+      });
   }, []);
 
   return (
-    <div>
+    <main className="articles">
       <h3>ArticleList</h3>
-      <ul>
+      <ul className="articles-list">
         {articles.map((article) => {
           return (
-            <li key={article.article_id}>
+            <li key={article.article_id} className="article-card">
               <Link to={`/articles/${article.article_id}`}>
                 <h2>(articles.article_name)</h2>
               </Link>
@@ -25,7 +29,7 @@ const ArticleList = () => {
           );
         })}
       </ul>
-    </div>
+    </main>
   );
 };
 
