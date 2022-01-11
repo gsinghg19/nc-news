@@ -12,13 +12,13 @@ const ArticleList = () => {
         setArticles(articlesFromApi);
       })
       .catch((error) => {
-        console.log(error, "running line 14<<<>>>");
+        console.log(error, "running line 15<<<>>>");
       });
   }, []);
 
   return (
     <div>
-      <h5>ArticleList</h5>
+      <h5>All Articles Available</h5>
       <ul>
         {articles.map((article) => {
           return (

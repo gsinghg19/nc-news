@@ -18,7 +18,7 @@ export const getArticle = (article_id) => {
       `https://gsinghg19-be-nc-news-app.herokuapp.com/api/articles/${article_id}`
     )
     .then((res) => {
-      return res.data.articles;
+      return res.data.articles_id;
     });
 };
 

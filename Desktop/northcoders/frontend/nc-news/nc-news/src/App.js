@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Homepage from "./components/Homepage.jsx";
 import ArticleCard from "./components/ArticleCard";
+import TopicCard from "./components/TopicCard.jsx";
 function App() {
   return (
     <BrowserRouter>
@@ -15,14 +16,10 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Homepage />} />
-
-          <Route path="/articles/topics/" element={<TopicList />} />
+          <Route path="/topics/" element={<TopicList />} />
           <Route path="/articles/" element={<ArticlesList />} />
           <Route path="/articles/:articles_id" element={<ArticleCard />} />
-          <Route
-            path="/articles/topic/:topic_slug"
-            elements={<ArticlesList />}
-          />
+          <Route path="/topics/:topics.slug" element={<TopicCard />} />
         </Routes>
       </div>
     </BrowserRouter>

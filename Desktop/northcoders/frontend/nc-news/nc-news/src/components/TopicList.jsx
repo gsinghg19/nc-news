@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllTopics } from "../utils/api";
-
-import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 const TopicList = () => {
   const [topics, setTopics] = useState([]);
@@ -9,6 +8,7 @@ const TopicList = () => {
   useEffect(() => {
     getAllTopics()
       .then((topicsFromApi) => {
+        console.log(topicsFromApi);
         setTopics(topicsFromApi);
       })
       .catch((error) => {
@@ -19,13 +19,17 @@ const TopicList = () => {
 
   return (
     <div>
-      <h5>ArticleList</h5>
+      <h5>All Topics Available</h5>
       <ul>
-        <li>
-          <Link to={`/articles/${topics}`}>
-            <h5>Article title goes here</h5>
-          </Link>
-        </li>
+        {topics.map((topic) => {
+          return (
+            <li key={topic.slug}>
+              <Button variant="contained" href={`/topics/${topic.slug}`}>
+                <h5>{topic.description}</h5>
+              </Button>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
