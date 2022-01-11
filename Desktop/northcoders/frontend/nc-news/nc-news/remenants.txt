@@ -1,0 +1,114 @@
+const Homepage = () => {
+  return (
+    <div>
+      <h1>Welcome to my NC news App</h1>
+      <img
+        id="Home"
+        src="https://media.istockphoto.com/vectors/latest-news-vector-id1329330958"
+        alt="News logo"
+        height="130"
+        width="130"
+      />
+    </div>
+  );
+};
+
+export default Homepage;
+
+
+
+const Nav = () => {
+  return (
+    <nav className="Home">
+      <Link to="/">
+        <button onClick="/">Homepage</button>
+      </Link>
+      <Link to="/articles">
+        <button onClick="/articles/">Articles</button>
+      </Link>
+      <Link to="/TopicList">
+        <button onClick="/topics/">Article Topics</button>
+      </Link>
+    </nav>
+  );
+};
+
+
+
+import { Link } from "react-router-dom";
+import Card from '@mui/material/Card';
+
+const ArticleCard = ({ article_id, title, created_at, author }) => {
+  return (
+    <article className="ArticleCard">
+      <div className="ArticleInfo">
+        <h2 id="ArticleAuthor">
+          Posted by {author} on {created_at.slice(0, 10)}
+        </h2>
+        <Link className="ArticleTitle" to={`/articles/${article_id}`}>
+          <h2>{title}</h2>
+        </Link>
+      </div>
+    </article>
+  );
+};
+
+export default ArticleCard;
+
+
+
+const ArticleList = () => {
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    getAllArticles()
+      .then((articlesFromApi) => {
+        setArticles(articlesFromApi);
+      })
+      .catch((error) => {
+        console.log(error, "running line 14<<<>>>");
+      });
+  }, []);
+
+  return (
+    <div className="articles">
+      <h3>ArticleList</h3>
+      <ul>
+        {articles.map((article) => {
+          return (
+            <li key={article.article_id}>
+              <Link to={`/articles/${article.article_id}`}>
+                <h2>(articles.article_name)</h2>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
+
+
+import { Link } from "react-router-dom";
+
+const TopicCard = ({ slug, description }) => {
+  return (
+    <article className="TopicCard">
+      <Link className="Link" to={`/articles/topic/${slug}`}>
+        <h2>{slug.toUppercase()}</h2>
+      </Link>
+      <p>{description}</p>
+    </article>
+  );
+};
+
+ return (
+    <div className="TopicList">
+      {topic.map((topic) => {
+        return <TopicCard key={topic.slug} {...topic} />;
+      })}
+    </div>
+  );
+};
+
+export default TopicCard;

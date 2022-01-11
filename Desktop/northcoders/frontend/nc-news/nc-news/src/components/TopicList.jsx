@@ -1,22 +1,32 @@
 import { useEffect, useState } from "react";
 import { getAllTopics } from "../utils/api";
-import TopicCard from "./TopicCard";
+
+import { Link } from "react-router-dom";
 
 const TopicList = () => {
-  const [topic, setTopic] = useState([]);
+  const [topics, setTopics] = useState([]);
 
   useEffect(() => {
-    getAllTopics().then((topicApi) => {
-      setTopic(topicApi);
-    });
+    getAllTopics()
+      .then((topicsFromApi) => {
+        setTopics(topicsFromApi);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
+  console.log(topics);
 
   return (
-    <div className="TopicList">
-      {topic.map((topic) => {
-        return <TopicCard key={topic.slug} {...topic} />;
-      })}
-      ;
+    <div>
+      <h5>ArticleList</h5>
+      <ul>
+        <li>
+          <Link to={`/articles/${topics}`}>
+            <h5>Article title goes here</h5>
+          </Link>
+        </li>
+      </ul>
     </div>
   );
 };

@@ -1,18 +1,39 @@
-import { Link } from "react-router-dom";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import React from "react-router-dom";
 
-const ArticleCard = ({ article_id, title, created_at, author }) => {
+const bull = (
+  <Box
+    component="span"
+    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
+  ></Box>
+);
+
+function ArticleCard() {
   return (
-    <article className="ArticleCard">
-      <div className="ArticleInfo">
-        <h2 id="ArticleAuthor">
-          Posted by {author} on {created_at.slice(0, 10)}
-        </h2>
-        <Link className="ArticleTitle" to={`/articles/${article_id}`}>
-          <h2>{title}</h2>
-        </Link>
-      </div>
-    </article>
+    <Card sx={{ minWidth: 275 }}>
+      <CardContent>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          Article
+        </Typography>
+        <Typography variant="h5" component="div">
+          Article Title
+        </Typography>
+        <Typography variant="body2">
+          Article Text first few lines
+          <br />
+          {'"NEWS, NEWS, NEWS, NEWS"'}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="large">Expand</Button>
+      </CardActions>
+    </Card>
   );
-};
+}
 
 export default ArticleCard;

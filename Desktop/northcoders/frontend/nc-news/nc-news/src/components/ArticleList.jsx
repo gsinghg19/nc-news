@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getAllArticles } from "../utils/api";
-import * as api from "../utils/api";
+import { Button } from "@mui/material";
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
@@ -9,6 +8,7 @@ const ArticleList = () => {
   useEffect(() => {
     getAllArticles()
       .then((articlesFromApi) => {
+        console.log(articlesFromApi);
         setArticles(articlesFromApi);
       })
       .catch((error) => {
@@ -17,20 +17,23 @@ const ArticleList = () => {
   }, []);
 
   return (
-    <body className="articles">
-      <h3>ArticleList</h3>
-      <ul className="articles-list">
+    <div>
+      <h5>ArticleList</h5>
+      <ul>
         {articles.map((article) => {
           return (
-            <li key={article.article_id} className="article-card">
-              <Link to={`/articles/${article.article_id}`}>
-                <h2>(articles.article_name)</h2>
-              </Link>
+            <li key={article.article_id}>
+              <Button
+                variant="contained"
+                href={`/articles/${article.article_id}`}
+              >
+                <h5>{article.title}</h5>
+              </Button>
             </li>
           );
         })}
       </ul>
-    </body>
+    </div>
   );
 };
 

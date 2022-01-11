@@ -8,7 +8,7 @@ export const getAllArticles = () => {
   return newsApi
     .get("https://gsinghg19-be-nc-news-app.herokuapp.com/api/articles")
     .then((res) => {
-      return res.data.articles;
+      return res.data.allArticles;
     });
 };
 

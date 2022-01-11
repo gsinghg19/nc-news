@@ -1,18 +1,19 @@
 import React from "react-router-dom";
+import Skeleton from "@mui/material/Skeleton";
+import Stack from "@mui/material/Stack";
 
-const Homepage = () => {
+function Homepage() {
   return (
-    <div>
-      <h1>Welcome to my NC news App</h1>
-      <img
-        id="Home"
-        src="https://media.istockphoto.com/vectors/latest-news-vector-id1329330958"
-        alt="News logo"
-        height="130"
-        width="130"
+    <Stack spacing={1}>
+      <Skeleton variant="text" />
+      <Skeleton
+        variant="rectangular"
+        width={1430}
+        height={520}
+        sx={{ bgcolor: "lightcoral" }}
       />
-    </div>
+    </Stack>
   );
-};
+}
 
 export default Homepage;

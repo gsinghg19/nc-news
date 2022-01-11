@@ -1,19 +1,22 @@
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 const Nav = () => {
   return (
-    <nav className="Home">
-      <Link to="/">
-        <button onClick="/">Homepage</button>
-      </Link>
-      <Link to="/articles">
-        <button onClick="/articles/">Articles</button>
-      </Link>
-      <Link to="/TopicList">
-        <button onClick="/topics/">Article Topics</button>
-      </Link>
-    </nav>
+    <>
+      <Button variant="contained" href="/">
+        Home
+      </Button>
+      <Button variant="contained" href="/articles/">
+        Articles
+      </Button>
+      <Button variant="contained" href="/topic/">
+        Topics
+      </Button>
+      <Button variant="contained" href="/topic/">
+        Topics
+      </Button>
+    </>
   );
 };
-
 export default Nav;
