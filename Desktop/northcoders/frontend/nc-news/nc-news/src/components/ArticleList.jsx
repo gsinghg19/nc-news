@@ -4,36 +4,39 @@ import { Button } from "@mui/material";
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     getAllArticles()
       .then((articlesFromApi) => {
         console.log(articlesFromApi);
         setArticles(articlesFromApi);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error, "running line 15<<<>>>");
       });
   }, []);
 
-  return (
-    <div>
-      <h5>All Articles Available</h5>
-      <ul>
-        {articles.map((article) => {
-          return (
-            <li key={article.article_id}>
-              <Button
-                variant="contained"
-                href={`/articles/${article.article_id}`}
-              >
-                <h5>{article.title}</h5>
-              </Button>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+  return isLoading ? (
+    <p>Loading please wait.....</p>
+  ) : (
+    <ul>
+      {" "}
+      {articles.map((article) => {
+        return (
+          <li key={article.article_id}>
+            <Button
+              variant="contained"
+              href={`/articles/${article.article_id}`}
+            >
+              <h5>{article.title}</h5>
+            </Button>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 

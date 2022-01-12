@@ -15,23 +15,37 @@ const Homepage = () => {
 
 export default Homepage;
 
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
 
-
-const Nav = () => {
+const Header = () => {
   return (
-    <nav className="Home">
-      <Link to="/">
-        <button onClick="/">Homepage</button>
-      </Link>
-      <Link to="/articles">
-        <button onClick="/articles/">Articles</button>
-      </Link>
-      <Link to="/TopicList">
-        <button onClick="/topics/">Article Topics</button>
-      </Link>
-    </nav>
+    <div>
+      <h1>NC news app</h1>
+      <Box
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "25ch" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          required
+          id="outlined-required"
+          label="Required"
+          defaultValue="Hello World"
+        />
+      </Box>
+    </div>
   );
 };
+
+export default Header;
+
+
+
+
 
 
 
@@ -150,20 +164,6 @@ const ArticleList = () => {
 
 export default ArticleList;
 
-return (
-    <div className="articles">
-      <h3>ArticleList</h3>
-      <ul>
-        {articles.map((article) => {
-          return (
-            <li key={article.article_id}>
-              <Link to={`/articles/${article.article_id}`}>
-                <h2>(articles.article_name)</h2>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-};
+
+
+
