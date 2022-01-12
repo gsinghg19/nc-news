@@ -5,8 +5,8 @@ import TopicList from "./components/TopicList";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Homepage from "./components/Homepage.jsx";
-import TopicCard from "./components/TopicCard.jsx";
 import SingleArticle from "./components/SingleArticle";
+import ArticlesByTopic from "./components/ArticlesByTopic";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <Route path="/topics/" element={<TopicList />} />
           <Route path="/articles/" element={<ArticlesList />} />
           <Route path="/articles/:article_id" element={<SingleArticle />} />
-          <Route path="/topics/:slug" element={<TopicCard />} />
+          <Route path="/topics/:slug" element={<ArticlesByTopic />} />
         </Routes>
       </div>
     </BrowserRouter>

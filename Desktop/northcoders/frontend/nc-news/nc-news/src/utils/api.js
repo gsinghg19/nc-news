@@ -22,3 +22,9 @@ export const getAllTopics = () => {
     return res.data.topics;
   });
 };
+
+export const getArticlesViaSingleTopic = (slug) => {
+  return newsApi.get(`/topics/${slug}`).then((res) => {
+    return res.data;
+  });
+};
