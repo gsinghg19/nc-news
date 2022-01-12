@@ -20,7 +20,7 @@ const ArticleList = () => {
   }, []);
 
   return isLoading ? (
-    <p>Loading please wait.....</p>
+    <h1>Loading please wait.....</h1>
   ) : (
     <ul>
       {" "}

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllTopics } from "../utils/api";
 import { Button } from "@mui/material";
-import { Article } from "@mui/icons-material";
 
 const TopicList = () => {
   const [topics, setTopics] = useState([]);
@@ -22,7 +21,7 @@ const TopicList = () => {
   console.log(topics);
 
   return isLoading ? (
-    <p>Loading please wait.....</p>
+    <h1>Loading please wait.....</h1>
   ) : (
     <ul>
       {" "}

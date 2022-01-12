@@ -5,27 +5,20 @@ const newsApi = axios.create({
 });
 
 export const getAllArticles = () => {
-  return newsApi
-    .get("https://gsinghg19-be-nc-news-app.herokuapp.com/api/articles")
-    .then((res) => {
-      return res.data.allArticles;
-    });
+  return newsApi.get(`/articles`).then((res) => {
+    return res.data.allArticles;
+  });
 };
 
-export const getArticle = (article_id) => {
-  return newsApi
-    .get(
-      `https://gsinghg19-be-nc-news-app.herokuapp.com/api/articles/${article_id}`
-    )
-    .then((res) => {
-      return res.data.articles_id;
-    });
+export const getSingleArticle = (article_id) => {
+  return newsApi.get(`/articles/${article_id}`).then((res) => {
+    console.log(res);
+    return res.data;
+  });
 };
 
 export const getAllTopics = () => {
-  return newsApi
-    .get("https://gsinghg19-be-nc-news-app.herokuapp.com/api/topics")
-    .then((res) => {
-      return res.data.topics;
-    });
+  return newsApi.get(`/topics`).then((res) => {
+    return res.data.topics;
+  });
 };
