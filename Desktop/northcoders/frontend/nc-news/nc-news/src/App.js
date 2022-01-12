@@ -19,7 +19,7 @@ function App() {
           <Route path="/topics/" element={<TopicList />} />
           <Route path="/articles/" element={<ArticlesList />} />
           <Route path="/articles/:articles_id" element={<ArticleCard />} />
-          <Route path="/topics/:topics.slug" element={<TopicCard />} />
+          <Route path="/topics/:slug" element={<TopicCard />} />
         </Routes>
       </div>
     </BrowserRouter>
