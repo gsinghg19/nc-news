@@ -250,5 +250,27 @@ const ArticleCard = ({ article_id, title, author }) => {
 export default ArticleCard;
 
 
+import { Link } from "react-router-dom";
+
+import React from "react-router-dom";
+
+const ArticleCard = ({ article_id, author, title, created_at }) => {
+  return (
+    <article className="'ArticleCard">
+      <div className="ArticleInfo">
+        <h2 id="ArticleAuthor">
+          Written by {author} on {created_at}
+        </h2>
+        <Link className="ArticleTitle" to={`/articles/${article_id}`}>
+          <h2>{title}</h2>
+        </Link>
+      </div>
+    </article>
+  );
+};
+
+export default ArticleCard;
+
+
 
 
