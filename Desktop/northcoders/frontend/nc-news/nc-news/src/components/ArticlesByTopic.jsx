@@ -8,7 +8,6 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import React from "react-router-dom";
-import { Topic } from "@mui/icons-material";
 
 const ArticlesByTopic = () => {
   const [specificTopic, setSpecificTopic] = useState({});
@@ -36,16 +35,14 @@ const ArticlesByTopic = () => {
   }, [slug]);
   console.log(specificTopic);
 
-  return isLoading ? (
-    <h1>Loading please wait.....</h1>
-  ) : (
+  return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <Typography sx={{ fontSize: 18 }} color="text.secondary" gutterBottom>
           <article className="setArticleByTopic">
-            <h4>Written by {slug}</h4>
-            <h2>hello</h2>
-            <p>hello</p>
+            <h4>Topic: {slug}</h4>
+            <h2>{}</h2>
+            <p>world</p>
           </article>
           <br />
         </Typography>
