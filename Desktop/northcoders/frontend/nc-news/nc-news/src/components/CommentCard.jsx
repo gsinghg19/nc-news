@@ -1,14 +1,16 @@
 import DeleteComment from "./DeleteComment";
+import Counter from "./Counter";
 
-const CommentCard = (
+const CommentCard = ({
   author,
   body,
   comment_id,
   votes,
   getComments,
   username,
-  created_at
-) => {
+  created_at,
+}) => {
+  console.log(author, body);
   return (
     <div className="CommentCard">
       <div className="CommentInfo">
@@ -18,7 +20,13 @@ const CommentCard = (
           getsComments={getComments}
           author={author}
           username={username}
+          created_at={created_at}
         />
+        <div className="CommentsVotingBox">
+          <div className="CommentsVoter">
+            <Counter votes={votes} id={comment_id} type={"comments"} />
+          </div>
+        </div>
       </div>
     </div>
   );

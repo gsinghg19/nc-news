@@ -29,7 +29,7 @@ const TopicList = () => {
         return (
           <li key={topic.slug}>
             <Button variant="contained" href={`/topics/${topic.slug}`}>
-              <h5>{topic.description}</h5>
+              <h5>{topic.slug}</h5>
             </Button>
           </li>
         );

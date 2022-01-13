@@ -35,16 +35,10 @@ function Homepage() {
         <CardContent>
           <Typography sx={{ fontSize: 18 }} color="text.secondary" gutterBottom>
             <article className="SingleArticle">
-              <h4>Written by {article.author}</h4>
-              <h2>{article.title}</h2>
-              <p>{article.body}</p>
+              <h4>Some articles written by our users</h4>
             </article>
-            <br />
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button size="large">Expand</Button>
-        </CardActions>
       </Card>
 
       <Card sx={{ minWidth: 375 }}>

@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 
 const UserLogin = () => {
   return (
-    <Button variant="contained">
+    <Button variant="contained" spacing={5} disabled={"Logged in as guest"}>
       UserLogin <h2 className="UserLogin">Logged in as guest</h2>
     </Button>
   );

@@ -8,6 +8,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import React from "react-router-dom";
+import CommentList from "./CommentsList";
 
 const SingleArticle = () => {
   const [article, setArticle] = useState({});
@@ -25,31 +26,43 @@ const SingleArticle = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getSingleArticle(article_id).then((articleData) => {
-      setArticle(articleData);
-      console.log(articleData);
-      setIsLoading(false);
-    });
+    getSingleArticle(article_id)
+      .then((articleData) => {
+        setArticle(articleData);
+        console.log(articleData);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [article_id]);
+  var dayjs = require("dayjs");
+  //import dayjs from 'dayjs' // ES 2015
+  dayjs().format();
 
   return isLoading ? (
     <h1>Loading....</h1>
   ) : (
-    <Card sx={{ minWidth: 275 }}>
-      <CardContent>
-        <Typography sx={{ fontSize: 18 }} color="text.secondary" gutterBottom>
-          <article className="SingleArticle">
-            <h4>Written by {article.author}</h4>
-            <h2>{article.title}</h2>
-            <p>{article.body}</p>
-          </article>
-          <br />
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="large">Expand</Button>
-      </CardActions>
-    </Card>
+    <>
+      <Card sx={{ minWidth: 275 }}>
+        <CardContent>
+          <Typography sx={{ fontSize: 18 }} color="text.secondary" gutterBottom>
+            <article className="SingleArticle">
+              <h4>Written by {article.author}</h4>
+              <h2>{article.title}</h2>
+              <p>{article.body}</p>
+              <p>Post created at: {article.created_at}</p>
+              <p>Number of votes test test test : {article_id.votes}</p>
+            </article>
+            <br />
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="large">share</Button>
+        </CardActions>
+      </Card>
+      <CommentList />
+    </>
   );
 };
 export default SingleArticle;

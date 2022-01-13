@@ -1,4 +1,5 @@
 import axios from "axios";
+import { version } from "react-dom";
 
 const newsApi = axios.create({
   baseURL: "https://gsinghg19-be-nc-news-app.herokuapp.com/api",
@@ -12,7 +13,6 @@ export const getAllArticles = () => {
 
 export const getSingleArticle = (article_id) => {
   return newsApi.get(`/articles/${article_id}`).then((res) => {
-    console.log(res);
     return res.data;
   });
 };
@@ -39,4 +39,30 @@ export const getSingleUser = (username) => {
   return newsApi.get(`/users/${username}`).then((res) => {
     return res.data.username;
   });
+};
+
+export const fetchArticleCommentsByArticleId = (article_id) => {
+  return newsApi.get(`/articles/${article_id}/comments`).then((res) => {
+    return res.data.comments;
+  });
+};
+
+export const postNewComment = (article_id, comment) => {
+  return newsApi.post(`/articles/${article_id}/comments`).then((res) => {
+    return res.data;
+  });
+};
+
+export const deleteComment = (comment_id) => {
+  return newsApi.delete(`/comments/${comment_id}`).then(() => {});
+};
+
+export const patchVotes = (path, id, vote) => {
+  return newsApi
+    .patch(`/${path}/${id}`, {
+      inc_votes: vote,
+    })
+    .then((res) => {
+      return res.votes;
+    });
 };

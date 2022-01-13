@@ -12,8 +12,9 @@ import React from "react-router-dom";
 const ArticlesByTopic = () => {
   const [specificTopic, setSpecificTopic] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const { slug } = useParams();
-  console.log(slug);
+  console.log(specificTopic);
+  const { slug, description } = useParams();
+  console.log(slug, description);
 
   const bull = (
     <Box
@@ -25,15 +26,15 @@ const ArticlesByTopic = () => {
   useEffect(() => {
     setIsLoading(true);
     getArticlesViaSingleTopic(slug)
-      .then((articlesByTopicFromApi) => {
-        setSpecificTopic(articlesByTopicFromApi);
+      .then((topicData) => {
+        setSpecificTopic(topicData);
+        console.log(topicData);
         setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
       });
   }, [slug]);
-  console.log(specificTopic);
 
   return (
     <Card sx={{ minWidth: 275 }}>
@@ -41,8 +42,7 @@ const ArticlesByTopic = () => {
         <Typography sx={{ fontSize: 18 }} color="text.secondary" gutterBottom>
           <article className="setArticleByTopic">
             <h4>Topic: {slug}</h4>
-            <h2>{}</h2>
-            <p>world</p>
+            <h2>{description}</h2>
           </article>
           <br />
         </Typography>

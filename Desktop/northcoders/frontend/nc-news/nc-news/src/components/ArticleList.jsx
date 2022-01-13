@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { getAllArticles } from "../utils/api";
 import { Button } from "@mui/material";
+import sorter from "./sorter";
+import ErrorMessage from "./ErrorMessage";
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading, error] = useState(true);
+  const [sortBy, setSortBy] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
@@ -15,7 +18,7 @@ const ArticleList = () => {
         setIsLoading(false);
       })
       .catch((error) => {
-        console.log(error, "running line 15<<<>>>");
+        console.log(error);
       });
   }, []);
 
