@@ -11,23 +11,24 @@ import NewspaperIcon from "@mui/icons-material/Newspaper";
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getSingleArticle } from "../utils/api";
+import { getSingleUser } from "../utils/api";
 
 function Homepage() {
-  const [article, setArticle] = useState({});
+  const [user, setUser] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  console.log(article);
-  const { article_id } = useParams();
-  console.log(article_id);
+  const { username } = useParams();
+  console.log(username);
+
+  console.log(setUser);
 
   useEffect(() => {
     setIsLoading(true);
-    getSingleArticle(article_id).then((articleData) => {
-      setArticle(articleData);
-      console.log(articleData);
+    getSingleUser(username).then((userData) => {
+      console.log(userData);
+      setUser(userData);
       setIsLoading(false);
     });
-  }, [article_id]);
+  }, [username]);
 
   return (
     <>
@@ -40,10 +41,10 @@ function Homepage() {
               color="text.secondary"
               gutterBottom
             >
-              <article className="SingleArticle">
+              <article className="SingleUser">
                 <h2>
                   <NewspaperIcon sx={{ fontSize: 100 }}></NewspaperIcon>
-                  Some of our writers on our books{" "}
+                  Just some of the writers on our books{" "}
                   <NewspaperIcon sx={{ fontSize: 100 }}></NewspaperIcon>
                 </h2>
               </article>
@@ -58,10 +59,10 @@ function Homepage() {
               color="text.secondary"
               gutterBottom
             >
-              <article className="SingleArticle">
-                <h4>Author name and picture/avatar {article.author}</h4>
-                <h2>{article.title}</h2>
-                <p>{article.body}</p>
+              <article className="SingleUser">
+                <h4>Author name and picture/avatar {user.name}</h4>
+
+                <img src={user.avatar_url} alt="user avatar"></img>
               </article>
               <br />
             </Typography>
@@ -78,10 +79,10 @@ function Homepage() {
               color="text.secondary"
               gutterBottom
             >
-              <article className="SingleArticle">
-                <h4>Author name and picture/avatar {article.author}</h4>
-                <h2>{article.title}</h2>
-                <p>{article.body}</p>
+              <article className="SingleUser">
+                <h4>Author name and picture/avatar {user.name}</h4>
+
+                <img src={user.avatar_url} alt="user avatar"></img>
               </article>
               <br />
             </Typography>
@@ -98,10 +99,10 @@ function Homepage() {
               color="text.secondary"
               gutterBottom
             >
-              <article className="SingleArticle">
-                <h4>Author name and picture/avatar {article.author}</h4>
-                <h2>{article.title}</h2>
-                <p>{article.body}</p>
+              <article className="SingleUser">
+                <h4>Author name and picture/avatar {user.name}</h4>
+
+                <img src={user.avatar_url} alt="user avatar"></img>
               </article>
               <br />
             </Typography>
@@ -118,10 +119,10 @@ function Homepage() {
               color="text.secondary"
               gutterBottom
             >
-              <article className="SingleArticle">
-                <h4>Author name and picture/avatar {article.author}</h4>
-                <h2>{article.title}</h2>
-                <p>{article.body}</p>
+              <article className="SingleUser">
+                <h4>Author name and picture/avatar {user.name}</h4>
+
+                <img src={user.avatar_url} alt="user avatar"></img>
               </article>
               <br />
             </Typography>

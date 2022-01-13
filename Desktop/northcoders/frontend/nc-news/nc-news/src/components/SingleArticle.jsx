@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import React from "react-router-dom";
 import CommentList from "./CommentsList";
+import * as dayjs from "dayjs";
 
 const SingleArticle = () => {
   const [article, setArticle] = useState({});
@@ -36,9 +37,6 @@ const SingleArticle = () => {
         console.log(error);
       });
   }, [article_id]);
-  var dayjs = require("dayjs");
-  //import dayjs from 'dayjs' // ES 2015
-  dayjs().format();
 
   return isLoading ? (
     <h1>Loading....</h1>
@@ -50,8 +48,11 @@ const SingleArticle = () => {
             <article className="SingleArticle">
               <h4>Written by {article.author}</h4>
               <h2>{article.title}</h2>
-              <p>{article.body}</p>
-              <p>Post created at: {article.created_at}</p>
+              <p style={{ textAlign: "left" }}>{article.body}</p>
+              <p>
+                Post created at:{" "}
+                {dayjs(article.created_at).format("DD/MM/YYYY")}
+              </p>
               <p>Number of votes test test test : {article_id.votes}</p>
             </article>
             <br />

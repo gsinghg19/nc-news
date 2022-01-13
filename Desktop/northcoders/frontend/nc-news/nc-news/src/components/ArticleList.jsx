@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 import { getAllArticles } from "../utils/api";
 import { Button } from "@mui/material";
 import Sorter from "./Sorter";
-import ErrorMessage from "./ErrorMessage";
-import { CenterFocusStrong } from "@mui/icons-material";
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
-  const [isLoading, setIsLoading, error] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [sortBy, setSortBy] = useState();
 
   useEffect(() => {

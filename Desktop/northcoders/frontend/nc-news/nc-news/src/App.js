@@ -22,6 +22,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/topics/" element={<TopicList />} />
           <Route path="/articles/" element={<ArticlesList />} />
+          <Route path="/users/:username" element={<Homepage />} />
           <Route path="/articles/:article_id" element={<SingleArticle />} />
           <Route path="/topics/:slug" element={<ArticlesByTopic />} />
           <Route
