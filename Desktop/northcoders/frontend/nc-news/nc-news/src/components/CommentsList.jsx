@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import React from "react-router-dom";
 import CommentCard from "./CommentCard";
+
 const CommentList = () => {
   const [username, setUsername] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -35,19 +36,36 @@ const CommentList = () => {
   return isLoading ? (
     <h1>Loading please wait.....</h1>
   ) : (
-    <Card sx={{ minWidth: 275 }}>
-      <CardContent>
-        <CommentCard>
-          {/* <Typography sx={{ fontSize: 18 }} color="text.secondary" gutterBottom>  //map over and like in article list.
-            <article className="comments">
-              <h4>test</h4>
-            </article>
-            <br />
-          </Typography> */}
-        </CommentCard>
-      </CardContent>
-      <CardActions></CardActions>
-    </Card>
+    <ul>
+      {/* {username.map((article_id) => {
+    //     return (
+    //       <li key={article_id.comments}>
+    //         <Button variant="contained">
+    //           <h5>{article_id.comments}</h5>
+    //         </Button>
+    //       </li>
+    //     );
+     //   })} */}
+
+      <Card sx={{ minWidth: 275 }}>
+        <CardContent>
+          <CommentCard>
+            <Typography
+              sx={{ fontSize: 18 }}
+              color="text.secondary"
+              gutterBottom
+            >
+              {" "}
+              <article className="comments">
+                <h4>test</h4>
+              </article>
+              <br />
+            </Typography>
+          </CommentCard>
+        </CardContent>
+        <CardActions></CardActions>
+      </Card>
+    </ul>
   );
 };
 
