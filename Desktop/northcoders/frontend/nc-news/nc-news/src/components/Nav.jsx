@@ -14,7 +14,7 @@ const Nav = () => {
       <Button variant="contained" href="/topics/">
         Topics
       </Button>
-      <Button variant="contained" endIcon={<LoginIcon />}>
+      <Button variant="contained" href="/users/" endIcon={<LoginIcon />}>
         UserLogin
       </Button>
     </ButtonGroup>

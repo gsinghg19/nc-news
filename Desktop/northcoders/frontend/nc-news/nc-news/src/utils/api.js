@@ -28,3 +28,15 @@ export const getArticlesViaSingleTopic = (slug) => {
     return res.data;
   });
 };
+
+export const getAllUsers = () => {
+  return newsApi.get(`/users`).then((res) => {
+    return res.data.allTheUsers;
+  });
+};
+
+export const getSingleUser = (username) => {
+  return newsApi.get(`/users/${username}`).then((res) => {
+    return res.data.username;
+  });
+};

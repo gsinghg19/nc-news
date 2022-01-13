@@ -7,6 +7,7 @@ import Nav from "./components/Nav";
 import Homepage from "./components/Homepage.jsx";
 import SingleArticle from "./components/SingleArticle";
 import ArticlesByTopic from "./components/ArticlesByTopic";
+import UserLogin from "./components/UserLogin";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/articles/" element={<ArticlesList />} />
           <Route path="/articles/:article_id" element={<SingleArticle />} />
           <Route path="/topics/:slug" element={<ArticlesByTopic />} />
+          <Route path="/users/" element={<UserLogin />} />
         </Routes>
       </div>
     </BrowserRouter>
