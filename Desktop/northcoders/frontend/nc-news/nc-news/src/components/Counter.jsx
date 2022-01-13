@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "@mui/material";
 
 const Counter = () => {
   const [count, setCount] = useState(0);
@@ -9,6 +10,12 @@ const Counter = () => {
     });
   };
 
+  const decreaseCount = () => {
+    setCount(function (currCount) {
+      return currCount - 1;
+    });
+  };
+
   const resetCounter = () => {
     setCount(0);
   };
@@ -16,8 +23,13 @@ const Counter = () => {
   return (
     <div>
       <p>Number of votes: {count}</p>
-      <button onClick={increaseCount}>increase</button>
-      <button onClick={resetCounter}>reset</button>
+      <Button style={{ color: "green" }} onClick={increaseCount}>
+        increase 👍
+      </Button>
+      <Button style={{ color: "red" }} onClick={decreaseCount}>
+        decrease 👎
+      </Button>
+      <Button onClick={resetCounter}>reset</Button>
     </div>
   );
 };

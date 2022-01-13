@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { getAllArticles } from "../utils/api";
 import { Button } from "@mui/material";
-import sorter from "./sorter";
+import Sorter from "./Sorter";
 import ErrorMessage from "./ErrorMessage";
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading, error] = useState(true);
-  const [sortBy, setSortBy] = useState("");
+  const [sortBy, setSortBy] = useState();
 
   useEffect(() => {
     setIsLoading(true);
@@ -21,6 +21,16 @@ const ArticleList = () => {
         console.log(error);
       });
   }, []);
+
+  useState(() => {
+    getAllArticles()
+      .then((criteriaFromApi) => {
+        setSortBy(criteriaFromApi);
+      })
+      .catch((error) => {
+        console.log(error);
+      }, []);
+  });
 
   return isLoading ? (
     <h1>Loading please wait.....</h1>

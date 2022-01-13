@@ -10,7 +10,7 @@ const CommentCard = ({
   username,
   created_at,
 }) => {
-  console.log(author, body);
+  console.log({ author, body });
   return (
     <div className="CommentCard">
       <div className="CommentInfo">

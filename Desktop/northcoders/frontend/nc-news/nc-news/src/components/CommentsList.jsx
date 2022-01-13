@@ -38,14 +38,14 @@ const CommentList = () => {
   ) : (
     <ul>
       {/* {username.map((article_id) => {
-    //     return (
-    //       <li key={article_id.comments}>
-    //         <Button variant="contained">
-    //           <h5>{article_id.comments}</h5>
-    //         </Button>
-    //       </li>
-    //     );
-     //   })} */}
+        return (
+          <li key={article_id.comments}>
+            <Button variant="contained">
+              <h5>{article_id.comments}</h5>
+            </Button>
+          </li>
+        );
+      })} */}
 
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
@@ -63,7 +63,6 @@ const CommentList = () => {
             </Typography>
           </CommentCard>
         </CardContent>
-        <CardActions></CardActions>
       </Card>
     </ul>
   );
