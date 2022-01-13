@@ -28,7 +28,11 @@ const TopicList = () => {
       {topics.map((topic) => {
         return (
           <li key={topic.slug}>
-            <Button variant="contained" href={`/topics/${topic.slug}`}>
+            <Button
+              style={{ minWidth: "200px" }}
+              variant="contained"
+              href={`/topics/${topic.slug}`}
+            >
               <h5>{topic.slug}</h5>
             </Button>
           </li>

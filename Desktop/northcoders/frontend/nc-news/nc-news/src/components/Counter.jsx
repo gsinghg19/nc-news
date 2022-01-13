@@ -12,7 +12,11 @@ const Counter = () => {
 
   const decreaseCount = () => {
     setCount(function (currCount) {
-      return currCount - 1;
+      if (currCount > 0) {
+        return currCount - 1;
+      } else {
+        return 0;
+      }
     });
   };
 

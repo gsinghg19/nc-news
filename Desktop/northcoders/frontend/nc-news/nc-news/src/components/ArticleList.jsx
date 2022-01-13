@@ -3,6 +3,7 @@ import { getAllArticles } from "../utils/api";
 import { Button } from "@mui/material";
 import Sorter from "./Sorter";
 import ErrorMessage from "./ErrorMessage";
+import { CenterFocusStrong } from "@mui/icons-material";
 
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
@@ -41,6 +42,9 @@ const ArticleList = () => {
         return (
           <li key={article.article_id}>
             <Button
+              style={{
+                minWidth: "660px",
+              }}
               variant="contained"
               href={`/articles/${article.article_id}`}
             >
