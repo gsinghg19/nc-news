@@ -10,11 +10,11 @@ const CommentCard = ({
   username,
   created_at,
 }) => {
-  console.log({ author, body });
+  console.log({ comment_id, body });
   return (
     <div className="CommentCard">
       <div className="CommentInfo">
-        <strong>{author}</strong> {body}
+        <strong>{comment_id}</strong> {body}
         <DeleteComment
           comment_id={comment_id}
           getsComments={getComments}

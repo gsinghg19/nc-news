@@ -10,7 +10,7 @@ const ArticleList = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getAllArticles()
+    getAllArticles(sortBy)
       .then((articlesFromApi) => {
         console.log(articlesFromApi);
         setArticles(articlesFromApi);
@@ -44,7 +44,7 @@ const ArticleList = () => {
                 minWidth: "660px",
               }}
               variant="contained"
-              href={`/articles/${article.article_id}`}
+              href={`/articles/${article.article_id}/`}
             >
               <h5>{article.title}</h5>
             </Button>

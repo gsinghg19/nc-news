@@ -14,6 +14,7 @@ const CommentList = () => {
   const [username, setUsername] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { article_id } = useParams();
+  console.log(username);
 
   const bull = (
     <Box
@@ -25,6 +26,7 @@ const CommentList = () => {
   useEffect(() => {
     fetchArticleCommentsByArticleId(article_id)
       .then((articleData) => {
+        console.log(articleData);
         setUsername(articleData);
         setIsLoading(false);
       })
@@ -37,16 +39,6 @@ const CommentList = () => {
     <h1>Loading please wait.....</h1>
   ) : (
     <ul>
-      {/* {username.map((article_id) => {
-        return (
-          <li key={article_id.comments}>
-            <Button variant="contained">
-              <h5>{article_id.comments}</h5>
-            </Button>
-          </li>
-        );
-      })} */}
-
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
           <CommentCard>

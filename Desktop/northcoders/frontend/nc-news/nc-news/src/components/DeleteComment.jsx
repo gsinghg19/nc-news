@@ -1,4 +1,5 @@
 import * as api from "../utils/api";
+import { Button } from "@mui/material";
 
 const DeleteComment = ({ comment_id, getComments, author, username }) => {
   const handleSubmit = (e) => {
@@ -10,9 +11,9 @@ const DeleteComment = ({ comment_id, getComments, author, username }) => {
     }
   };
   return (
-    <button className="DeleteButton" onClick={handleSubmit}>
+    <Button className="DeleteButton" onClick={handleSubmit} variant="outlined">
       Delete
-    </button>
+    </Button>
   );
 };
 

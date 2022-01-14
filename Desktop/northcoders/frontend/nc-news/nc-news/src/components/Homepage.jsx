@@ -32,7 +32,7 @@ function Homepage() {
 
   return (
     <>
-      <Stack spacing={1}>
+      <Stack spacing={2}>
         <Skeleton variant="text" />
         <Card sx={{ minWidth: 375 }}>
           <CardContent>
@@ -44,7 +44,7 @@ function Homepage() {
               <article className="SingleUser">
                 <h2>
                   <NewspaperIcon sx={{ fontSize: 100 }}></NewspaperIcon>
-                  Just some of the writers on our books{" "}
+                  Just some of our regular posters!{" "}
                   <NewspaperIcon sx={{ fontSize: 100 }}></NewspaperIcon>
                 </h2>
               </article>

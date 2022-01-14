@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@mui/material";
+import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
 
 const Counter = () => {
   const [count, setCount] = useState(0);
@@ -27,13 +28,24 @@ const Counter = () => {
   return (
     <div>
       <p>Number of votes: {count}</p>
-      <Button style={{ color: "green" }} onClick={increaseCount}>
+      <Button
+        style={{ color: "green" }}
+        variant="outlined"
+        onClick={increaseCount}
+      >
         increase 👍
       </Button>
-      <Button style={{ color: "red" }} onClick={decreaseCount}>
+      <Button
+        style={{ color: "red" }}
+        variant="outlined"
+        onClick={decreaseCount}
+      >
         decrease 👎
       </Button>
-      <Button onClick={resetCounter}>reset</Button>
+      <Button onClick={resetCounter} variant="outlined">
+        reset
+        <PriorityHighIcon />
+      </Button>
     </div>
   );
 };
