@@ -1,9 +1,39 @@
 import { useState } from "react";
 import { Button } from "@mui/material";
 import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
+import * as React from "react";
+import Snackbar from "@mui/material/Snackbar";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Counter = () => {
   const [count, setCount] = useState(0);
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  const action = (
+    <React.Fragment>
+      <Button color="secondary" size="small" onClick={handleClose}>
+        UNDO
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
 
   const increaseCount = () => {
     setCount(function (currCount) {
@@ -23,6 +53,7 @@ const Counter = () => {
 
   const resetCounter = () => {
     setCount(0);
+    setOpen(true);
   };
 
   return (
@@ -42,10 +73,18 @@ const Counter = () => {
       >
         decrease 👎
       </Button>
+
       <Button onClick={resetCounter} variant="outlined">
-        reset
+        Reset
         <PriorityHighIcon />
       </Button>
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message="Counter reset was successful"
+        action={action}
+      />
     </div>
   );
 };
