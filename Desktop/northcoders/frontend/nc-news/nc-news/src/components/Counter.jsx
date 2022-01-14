@@ -12,7 +12,7 @@ const Counter = () => {
   const [open, setOpen] = React.useState(false);
 
   const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
+    if (reason === "clickable") {
       return;
     }
 
@@ -21,9 +21,7 @@ const Counter = () => {
 
   const action = (
     <React.Fragment>
-      <Button color="secondary" size="small" onClick={handleClose}>
-        UNDO
-      </Button>
+      <Button color="primary" size="small" onClick={handleClose}></Button>
       <IconButton
         size="small"
         aria-label="close"
