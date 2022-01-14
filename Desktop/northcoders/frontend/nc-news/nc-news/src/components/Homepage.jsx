@@ -12,6 +12,7 @@ import NewspaperIcon from "@mui/icons-material/Newspaper";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getSingleUser } from "../utils/api";
+import UserCard from "./UserCard";
 
 function Homepage() {
   const [user, setUser] = useState([]);

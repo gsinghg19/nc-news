@@ -36,17 +36,17 @@ export const getAllUsers = () => {
 
 export const getSingleUser = (username) => {
   return newsApi.get(`/users/${username}`).then((res) => {
-    return res.data.username;
+    return res.data;
   });
 };
 
 export const fetchArticleCommentsByArticleId = (article_id) => {
   return newsApi.get(`/articles/${article_id}/comments`).then((res) => {
-    return res.data;
+    return res.data.commentsByArticleId;
   });
 };
 
-export const postNewComment = (article_id, comment) => {
+export const postNewComment = (article_id) => {
   return newsApi.post(`/articles/${article_id}/comments`).then((res) => {
     return res.data;
   });

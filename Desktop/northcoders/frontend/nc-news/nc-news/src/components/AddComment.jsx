@@ -12,8 +12,8 @@ class AddComment extends Component {
     this.setState({ [target.name]: target.value }, () => {});
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  handleSubmit = (e) => {
+    e.preventDefault();
     if (this.state.body.replace(/\s/g, "").length !== 0) {
       api.postNewComment(this.props.article_id, { ...this.state }).then(() => {
         this.setState({ username: this.props.username, body: "" });

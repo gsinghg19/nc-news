@@ -16,3 +16,5 @@ const UserCard = ({ user: { username, avatar_url, name } }) => {
     </Card>
   );
 };
+
+export default UserCard;
