@@ -7,11 +7,11 @@ const CommentCard = ({
   body,
   comment_id,
   votes,
-  getComments,
+  comments,
   username,
   created_at,
 }) => {
-  console.log({ comment_id, body });
+  console.log({ comments, body });
   return (
     <div className="CommentCard">
       <div className="CommentInfo">
@@ -19,7 +19,7 @@ const CommentCard = ({
         <ButtonGroup>
           <AddComment
             comment_id={comment_id}
-            getsComments={getComments}
+            getComments={comments}
             body={body}
             author={author}
             username={username}
@@ -27,7 +27,7 @@ const CommentCard = ({
           />
           <DeleteComment
             comment_id={comment_id}
-            getsComments={getComments}
+            getComments={comments}
             body={body}
             author={author}
             username={username}
