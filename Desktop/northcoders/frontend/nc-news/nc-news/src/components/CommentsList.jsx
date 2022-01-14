@@ -48,9 +48,7 @@ const CommentList = () => {
               gutterBottom
             >
               {" "}
-              <article className="comments">
-                <h4>test</h4>
-              </article>
+              <article className="comments"></article>
               <br />
             </Typography>
           </CommentCard>

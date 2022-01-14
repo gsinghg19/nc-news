@@ -1,5 +1,6 @@
 import DeleteComment from "./DeleteComment";
 import AddComment from "./AddComment";
+import { ButtonGroup } from "@mui/material";
 
 const CommentCard = ({
   author,
@@ -15,23 +16,24 @@ const CommentCard = ({
     <div className="CommentCard">
       <div className="CommentInfo">
         <strong>{comment_id}</strong> {body}
-        <AddComment
-          comment_id={comment_id}
-          getsComments={getComments}
-          author={author}
-          username={username}
-          created_at={created_at}
-        />
-        <DeleteComment
-          comment_id={comment_id}
-          getsComments={getComments}
-          author={author}
-          username={username}
-          created_at={created_at}
-        />
-        <div className="CommentsVotingBox">
-          <div className="CommentsVoter"></div>
-        </div>
+        <ButtonGroup>
+          <AddComment
+            comment_id={comment_id}
+            getsComments={getComments}
+            body={body}
+            author={author}
+            username={username}
+            created_at={created_at}
+          />
+          <DeleteComment
+            comment_id={comment_id}
+            getsComments={getComments}
+            body={body}
+            author={author}
+            username={username}
+            created_at={created_at}
+          />
+        </ButtonGroup>
       </div>
     </div>
   );
