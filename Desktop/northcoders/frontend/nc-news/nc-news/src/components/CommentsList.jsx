@@ -3,17 +3,17 @@ import { fetchArticleCommentsByArticleId } from "../utils/api";
 import { useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import React from "react-router-dom";
 import CommentCard from "./CommentCard";
 
 const CommentList = () => {
-  const [username, setUsername] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const { article_id } = useParams();
+  const [username, setUsername] = useState({ article_id });
+  const [isLoading, setIsLoading] = useState(true);
+
+  //console.log(article_id);
   console.log(username);
 
   const bull = (
@@ -54,6 +54,18 @@ const CommentList = () => {
               <br />
             </Typography>
           </CommentCard>
+        </CardContent>
+      </Card>
+
+      <Card sx={{ minWidth: 275 }}>
+        <CardContent>
+          <Typography sx={{ fontSize: 18 }} color="text.secondary" gutterBottom>
+            {" "}
+            <article className="comments">
+              <h4>added comments go here as well as original fetch comments</h4>
+            </article>
+            <br />
+          </Typography>
         </CardContent>
       </Card>
     </ul>

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { version } from "react-dom";
 
 const newsApi = axios.create({
   baseURL: "https://gsinghg19-be-nc-news-app.herokuapp.com/api",
@@ -43,7 +42,7 @@ export const getSingleUser = (username) => {
 
 export const fetchArticleCommentsByArticleId = (article_id) => {
   return newsApi.get(`/articles/${article_id}/comments`).then((res) => {
-    return res.data.comments;
+    return res.data;
   });
 };
 

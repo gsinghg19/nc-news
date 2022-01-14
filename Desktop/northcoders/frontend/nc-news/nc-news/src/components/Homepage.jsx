@@ -60,7 +60,7 @@ function Homepage() {
               gutterBottom
             >
               <article className="SingleUser">
-                <h4>Author name and picture/avatar {user.name}</h4>
+                <h4>Author username and picture/avatar {user.username}</h4>
 
                 <img src={user.avatar_url} alt="user avatar"></img>
               </article>
@@ -80,7 +80,7 @@ function Homepage() {
               gutterBottom
             >
               <article className="SingleUser">
-                <h4>Author name and picture/avatar {user.name}</h4>
+                <h4>Author name and picture/avatar {user.username}</h4>
 
                 <img src={user.avatar_url} alt="user avatar"></img>
               </article>
@@ -100,7 +100,7 @@ function Homepage() {
               gutterBottom
             >
               <article className="SingleUser">
-                <h4>Author name and picture/avatar {user.name}</h4>
+                <h4>Author name and picture/avatar {user.username}</h4>
 
                 <img src={user.avatar_url} alt="user avatar"></img>
               </article>
@@ -120,7 +120,7 @@ function Homepage() {
               gutterBottom
             >
               <article className="SingleUser">
-                <h4>Author name and picture/avatar {user.name}</h4>
+                <h4>Author name and picture/avatar {user.username}</h4>
 
                 <img src={user.avatar_url} alt="user avatar"></img>
               </article>

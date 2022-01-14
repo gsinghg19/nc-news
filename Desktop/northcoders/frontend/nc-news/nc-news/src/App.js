@@ -8,8 +8,9 @@ import Homepage from "./components/Homepage.jsx";
 import SingleArticle from "./components/SingleArticle";
 import ArticlesByTopic from "./components/ArticlesByTopic";
 import UserLogin from "./components/UserLogin";
-import CommentCard from "./components/CommentCard";
+
 import Counter from "./components/Counter";
+import CommentList from "./components/CommentsList";
 
 function App() {
   return (
@@ -25,9 +26,10 @@ function App() {
           <Route path="/users/:username" element={<Homepage />} />
           <Route path="/articles/:article_id" element={<SingleArticle />} />
           <Route path="/topics/:slug" element={<ArticlesByTopic />} />
+
           <Route
-            path="/articles/article_id/comments"
-            element={<CommentCard />}
+            path="/articles/:article_id/comments"
+            element={<CommentList />}
           />
           <Route
             path="/articles/:article_id/comments/votes"

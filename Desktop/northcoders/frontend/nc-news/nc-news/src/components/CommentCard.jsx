@@ -1,5 +1,5 @@
 import DeleteComment from "./DeleteComment";
-import Counter from "./Counter";
+import AddComment from "./AddComment";
 
 const CommentCard = ({
   author,
@@ -15,6 +15,13 @@ const CommentCard = ({
     <div className="CommentCard">
       <div className="CommentInfo">
         <strong>{comment_id}</strong> {body}
+        <AddComment
+          comment_id={comment_id}
+          getsComments={getComments}
+          author={author}
+          username={username}
+          created_at={created_at}
+        />
         <DeleteComment
           comment_id={comment_id}
           getsComments={getComments}
@@ -23,9 +30,7 @@ const CommentCard = ({
           created_at={created_at}
         />
         <div className="CommentsVotingBox">
-          <div className="CommentsVoter">
-            <Counter votes={votes} id={comment_id} type={"comments"} />
-          </div>
+          <div className="CommentsVoter"></div>
         </div>
       </div>
     </div>

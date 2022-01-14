@@ -12,7 +12,7 @@ const DeleteComment = ({ comment_id, getComments, author, username }) => {
   };
   return (
     <Button className="DeleteButton" onClick={handleSubmit} variant="outlined">
-      Delete
+      Delete comment!
     </Button>
   );
 };

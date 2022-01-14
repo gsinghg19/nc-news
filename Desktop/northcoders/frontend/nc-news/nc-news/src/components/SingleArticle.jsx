@@ -9,14 +9,17 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import React from "react-router-dom";
 import CommentList from "./CommentsList";
+import VotingCard from "./VotingCard";
+import Counter from "./Counter";
 import * as dayjs from "dayjs";
+import { CenterFocusStrong } from "@mui/icons-material";
+import AddComment from "./AddComment";
 
 const SingleArticle = () => {
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  console.log(article);
+
   const { article_id } = useParams();
-  console.log(article_id);
 
   const bull = (
     <Box
@@ -50,13 +53,12 @@ const SingleArticle = () => {
               <h2>{article.title}</h2>
               <p style={{ textAlign: "left" }}>{article.body}</p>
               <p>
-                Post created at:{" "}
-                {dayjs(article.created_at).format("DD/MM/YYYY")}
+                created on: {dayjs(article.created_at).format("DD/MM/YYYY")}{" "}
               </p>
-              <p>Number of votes test test test : {article_id.votes}</p>
             </article>
             <br />
           </Typography>
+          <VotingCard />
         </CardContent>
         <CardActions>
           <Button size="large">share</Button>

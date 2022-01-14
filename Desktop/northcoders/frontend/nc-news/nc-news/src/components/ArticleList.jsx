@@ -19,7 +19,7 @@ const ArticleList = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [sortBy]);
 
   useState(() => {
     getAllArticles()
